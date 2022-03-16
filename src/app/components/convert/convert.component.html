@@ -1,0 +1,57 @@
+<div class="convert">
+    <span nz-typography class="convert__text">Конвертер валют</span>
+
+    <nz-input-group nzCompact>
+        <nz-input-number
+            class="convert__input"
+            [nzMin]="1"
+            [nzMax]="100000"
+            [nzStep]="1"
+            [ngModel]="amount"
+            (ngModelChange)="onAmountChange($event)"
+        ></nz-input-number>
+        <nz-select
+            class="convert__select"
+            [ngModel]="selectedValue"
+            (ngModelChange)="onCodeChange($event)"
+        >
+            <ng-container *ngFor="let option of currencies; trackBy: trackByFn">
+                <nz-option
+                    [nzValue]="option.code"
+                    [nzLabel]="option.code"
+                ></nz-option>
+            </ng-container>
+        </nz-select>
+
+        <input
+            type="text"
+            disabled
+            nz-input
+            placeholder="~"
+            class="convert__split"
+        />
+
+        <input
+            class="convert__input convert__input_result"
+            type="number"
+            nz-input
+            disabled
+            [ngModel]="resultAmount | async"
+        />
+        <nz-select
+            class="convert__select"
+            [ngModel]="targetSelectedValue"
+            nzPlaceHolder="-"
+            (ngModelChange)="onTargetCodeChange($event)"
+        >
+            <ng-container
+                *ngFor="let option of targetCurrencies; trackBy: trackByFn"
+            >
+                <nz-option
+                    [nzValue]="option.code"
+                    [nzLabel]="option.code"
+                ></nz-option>
+            </ng-container>
+        </nz-select>
+    </nz-input-group>
+</div>

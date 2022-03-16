@@ -1,0 +1,31 @@
+.convert {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.convert__input {
+    width: 100px;
+
+    &_result {
+        color: black;
+        border-right: 0;
+        pointer-events: none;
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+.convert__select {
+    width: 80px;
+}
+
+.convert__text {
+    flex-shrink: 0;
+}
+
+.convert__split {
+    width: 30px;
+    pointer-events: none;
+    background-color: rgb(255, 255, 255);
+}
