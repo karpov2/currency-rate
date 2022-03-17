@@ -4,6 +4,10 @@ nz-select {
 
 .wrapper {
     padding: 50px;
+
+    @media (max-width: 620px) {
+        padding: 20px;
+    }
 }
 
 .title {
